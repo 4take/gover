@@ -1,0 +1,38 @@
+<html ng-app="App">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Gover</title>
+</head>
+<body ng-controller="AppCtrl as appCtrl" ng-cloak>
+
+  <header class="header">
+    <md-toolbar md-scroll-shrink>
+      <div class="md-toolbar-tools">
+        <h3>
+          <span>Gover</span>
+        </h3>
+        <span flex></span>
+        <md-button class="md-accent">Sign in</md-button>
+        <md-button class="md-accent">Log in</md-button>
+      </div>
+    </md-toolbar>
+  </header>
+
+  <auto-divider></auto-divider>
+
+  <section>
+    <img src="main.png" class="img-main"/>
+  </section>
+
+  <section>
+    <div layout="row" layout-align="center center">
+      <h2>住所の変更にはもう飽きたろう？</h2>
+    </div>
+  </section>
+
+
+<%= stylesheet_link_tag webpack_asset_path('application.css') %>
+<%= javascript_include_tag webpack_asset_path('application.js')%>
+</body>
+</html>
