@@ -35,10 +35,15 @@ import './directives/scroll-opacity-changer'
 
 //component
 import './components/auto-divider'
+import './components/login'
+import './components/signup'
 
 //services
 import './services/dialog'
 import './services/progress'
+
+//resources
+import './resources/user-resource'
 
 //models
 

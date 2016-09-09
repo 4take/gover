@@ -13,7 +13,7 @@ interface Function {
     $inject?: string[];
 }
 
-// Collapse frontend into ng
+// Collapse angular into ng
 import ng = angular;
 // Support AMD require
 declare module 'angular' {
@@ -21,7 +21,7 @@ declare module 'angular' {
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-// ng module (frontend.ts)
+// ng module (angular.js)
 ///////////////////////////////////////////////////////////////////////////////
 declare namespace angular {
 
@@ -51,9 +51,9 @@ declare namespace angular {
         bind(context: any, fn: Function, ...args: any[]): Function;
 
         /**
-         * Use this function to manually start up frontend application.
+         * Use this function to manually start up angular application.
          *
-         * @param element DOM element which is the root of frontend application.
+         * @param element DOM element which is the root of angular application.
          * @param modules An array of modules to load into the application.
          *     Each item in the array should be the name of a predefined module or a (DI annotated)
          *     function that will be invoked by the injector as a config block.
@@ -130,7 +130,7 @@ declare namespace angular {
         lowercase(str: string): string;
 
         /**
-         * Deeply extends the destination object dst by copying own enumerable properties from the src object(s) to dst. You can specify multiple src objects. If you want to preserve original objects, you can do so by passing an empty object as the target: var object = frontend.merge({}, object1, object2).
+         * Deeply extends the destination object dst by copying own enumerable properties from the src object(s) to dst. You can specify multiple src objects. If you want to preserve original objects, you can do so by passing an empty object as the target: var object = angular.merge({}, object1, object2).
          *
          * Unlike extend(), merge() recursively descends into object properties of source objects, performing a deep copy.
          *
@@ -140,7 +140,7 @@ declare namespace angular {
         merge(dst: any, ...src: any[]): any;
 
         /**
-         * The frontend.module is a global place for creating, registering and retrieving Angular modules. All modules (frontend core or 3rd party) that should be available to an application must be registered using this mechanism.
+         * The angular.module is a global place for creating, registering and retrieving Angular modules. All modules (angular core or 3rd party) that should be available to an application must be registered using this mechanism.
          *
          * When passed two or more arguments, a new module is created. If passed only one argument, an existing module (the name passed as the first argument to module) is retrieved.
          *
@@ -166,7 +166,7 @@ declare namespace angular {
         };
 
         /**
-         * If window.name contains prefix NG_DEFER_BOOTSTRAP! when frontend.bootstrap is called, the bootstrap process will be paused until frontend.resumeBootstrap() is called.
+         * If window.name contains prefix NG_DEFER_BOOTSTRAP! when angular.bootstrap is called, the bootstrap process will be paused until angular.resumeBootstrap() is called.
          * @param extraModules An optional array of modules that should be added to the original list of modules that the app was about to be bootstrapped with.
          */
         resumeBootstrap?(extraModules?: string[]): ng.auto.IInjectorService;
@@ -790,7 +790,7 @@ declare namespace angular {
         /**
          * register(name);
          *
-         * @param name Name of the filter function, or an object map of filters where the keys are the filter names and the values are the filter factories. Note: Filter names must be valid frontend Expressions identifiers, such as uppercase or orderBy. Names with special characters, such as hyphens and dots, are not allowed. If you wish to namespace your filters, then you can use capitalization (myappSubsectionFilterx) or underscores (myapp_subsection_filterx).
+         * @param name Name of the filter function, or an object map of filters where the keys are the filter names and the values are the filter factories. Note: Filter names must be valid angular Expressions identifiers, such as uppercase or orderBy. Names with special characters, such as hyphens and dots, are not allowed. If you wish to namespace your filters, then you can use capitalization (myappSubsectionFilterx) or underscores (myapp_subsection_filterx).
          */
         register(name: string | {}): IServiceProvider;
     }
@@ -803,7 +803,7 @@ declare namespace angular {
         id: string;
 
         // These are not documented
-        // Check frontend's i18n files for exemples
+        // Check angular's i18n files for exemples
         NUMBER_FORMATS: ILocaleNumberFormatDescriptor;
         DATETIME_FORMATS: ILocaleDateTimeFormatDescriptor;
         pluralCat: (num: any) => string;
@@ -1859,14 +1859,14 @@ declare namespace angular {
      * These interfaces are kept for compatibility with older versions of these type definitions.
      * Actually, Angular doesn't create a special subclass of jQuery objects. It extends jQuery.prototype
      * like jQuery plugins do, that's why all jQuery objects have these Angular-specific methods, not
-     * only those returned from frontend.element.
+     * only those returned from angular.element.
      * See: http://docs.angularjs.org/api/angular.element
      */
     interface IAugmentedJQueryStatic extends JQueryStatic {}
     interface IAugmentedJQuery extends JQuery {}
 
     ///////////////////////////////////////////////////////////////////////////
-    // AUTO module (frontend.ts)
+    // AUTO module (angular.js)
     ///////////////////////////////////////////////////////////////////////////
     export module auto {
 
