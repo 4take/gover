@@ -8,14 +8,14 @@ class AddressesController < ApiController
     render json: @addresses
   end
 
-  # GET /addresses/1
-  def show
-    render json: @address
-  end
-
   # GET /addresses/user/1
   def show_by_user
     render json: Address.find_by(user_id: params[:id])
+  end
+
+  # GET /addresses/:token
+  def show_by_token
+    render json: Address.find_by(token: params[:token])
   end
 
   # POST /addresses
