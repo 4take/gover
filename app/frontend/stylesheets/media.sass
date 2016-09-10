@@ -1,0 +1,35 @@
+@mixin pc
+  @media only screen and (min-width: 769px)
+    @content
+
+@mixin mobile
+  @media only screen and (max-width: 768px)
+    @content
+
+@mixin tablet
+  @media only screen and (min-width: 426px) and (max-width: 768px)
+    @content
+
+@mixin smartPhone
+  @media only screen and (max-width: 425px)
+    @content
+
+.show-pc
+  display: none
+  @include pc
+    display: block
+
+.show-mobile
+  display: none
+  @include mobile
+    display: block
+
+.show-tablet
+  display: none
+  @include tablet
+    display: block
+
+.show-smartPhone
+  display: none
+  @include smartPhone
+    display: block

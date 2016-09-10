@@ -3,21 +3,25 @@
 import angular = require('angular')
 import {User} from '../models/user'
 import UserResource from '../resources/user-resource'
+import Dialog from '../services/dialog'
 
 class Login {
-	private user: User = {mail: '', password: ''}
-	static $inject = ['$scope', '$element', '$timeout', 'userResources']
+	private user: User = {id: null, mail: '', password: ''}
+	static $inject = ['$rootScope', '$scope', '$element', '$timeout', 'dialog', 'userResource']
 
-	constructor(private scope: ng.IScope,
+	constructor(
+		private rootScope: ng.IRootScopeService,
+		private scope: ng.IScope,
 		private element: ng.IRootElementService,
 		private timeout: ng.ITimeoutService,
-		private userResources: UserResource) {
+		private dialog: Dialog,
+		private userResource: UserResource) {
 	}
 
 	private login() {
-		console.log('きたよ')
-		this.userResources.signup(this.user, ()=> {
-			console.log('きたよ')
+		this.userResource.login(this.user, (user)=> {
+			this.rootScope.$broadcast('logedIn', user)
+			this.dialog.hide()
 		})
 	}
 }

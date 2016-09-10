@@ -2,16 +2,38 @@
 @import 'color'
 @import 'progress'
 @import 'md-ext'
+@import 'media'
 
 @import 'partials/top'
 @import 'partials/login'
 @import 'partials/signup'
+@import 'partials/my-page'
 
-header
+.header
   position: fixed
   top: 0
   left: 0
   right: 0
+  z-index: 100
+  transition: 0.4s
+  md-toolbar
+    color: #D81B60
+    button
+      height: 100%
+      margin: 0px
+  .icons
+    .icon
+      padding: 5px
+      margin: 0 4px
+      border-radius: 6px
+      cursor: pointer
+      transition: 0.5s
+      &:hover
+        background-color: rgba(0,0,0,0.21)
+
+.is-scroll
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 5px 8px 0 rgba(0,0,0,.14),0 1px 14px 0 rgba(0,0,0,.12)
+
 .container
   padding: 1em
 

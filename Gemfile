@@ -37,3 +37,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # data
 gem 'seed-fu'
+
+gem 'rack-cors', :require => 'rack/cors', group: [:development, :test]

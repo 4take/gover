@@ -1,0 +1,11 @@
+<md-toast ng-class="{'md-toast-warn':toastCtrl.options.status == 'warn','md-toast-error':toastCtrl.options.status == 'error'}">
+    <div layout="column" style="margin-top:5px;" flex>
+        <div ng-repeat="m in toastCtrl.message.split('\n') track by $index" class="label-toast" ng-if="m">{{m}}</div>
+    </div>
+    <md-button ng-click="toastCtrl.ok()" ng-if="toastCtrl.showOk">
+        OK
+    </md-button>
+    <md-button ng-click="toastCtrl.cancel()" ng-if="toastCtrl.showCancel">
+        Cancel
+    </md-button>
+</md-toast>

@@ -37,13 +37,17 @@ import './directives/scroll-opacity-changer'
 import './components/auto-divider'
 import './components/login'
 import './components/signup'
+import './components/top'
+import './components/my-page'
 
 //services
 import './services/dialog'
 import './services/progress'
+import './services/toast'
 
 //resources
 import './resources/user-resource'
+import './resources/address-resource'
 
 //models
 
@@ -57,3 +61,11 @@ app.config(($mdThemingProvider) => {
             'default': '700'
         });
 });
+
+//app.config(["$httpProvider", ($httpProvider) => {
+//    $httpProvider.defaults.transformRequest = (data) => {}
+//return data if data is `undefined`
+//$.param data
+//
+//$httpProvider.defaults.headers.post = "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+//])

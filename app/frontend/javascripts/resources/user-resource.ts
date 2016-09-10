@@ -3,24 +3,39 @@
 import angular = require('angular')
 import {User} from '../models/user'
 
-let path: string = '/user'
+let path: string = '/users'
 
 export default class UserResource {
 	static $inject = ['$resource']
-	get resourcePost(): ng.resource.IResourceClass<any> {
-		return this.resource(path)
-	}
-
-	get resourceId(): ng.resource.IResourceClass<any> {
-		return this.resource(`${path}/:id`)
-	}
+	get resourcePost(): ng.resource.IResourceClass<any> { return this.resource(path) }
+	get resourceId(): ng.resource.IResourceClass<any> { return this.resource(`${path}/:id`) }
+	get resourceAuthenticate(): ng.resource.IResourceClass<any> { return this.resource(`${path}/authenticate`) }
 
 	constructor(private resource: ng.resource.IResourceService) {
+	}
+
+	query(success: (v: Array<User>) => void) {
+		var res: any
+		return res = this.resourcePost.query({
+			},
+			() => {
+				success(res);
+			})
 	}
 
 	signup(user: User, success: (v: User) => void) {
 		var res: any
 		return res = this.resourcePost.save({
+		},
+		user,
+		() => {
+			success(res);
+		})
+	}
+
+	login(user: User, success: (v: User) => void) {
+		var res: any
+		return res = this.resourceAuthenticate.save({
 		},
 		user,
 		() => {
@@ -36,6 +51,7 @@ export default class UserResource {
 			success(res);
 		})
 	}
+
 }
 
 let app = angular.module('App');

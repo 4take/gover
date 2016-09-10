@@ -5,32 +5,45 @@
   <title>Gover</title>
 </head>
 <body ng-controller="AppCtrl as appCtrl" ng-cloak>
-
   <header class="header">
     <md-toolbar md-scroll-shrink>
       <div class="md-toolbar-tools">
+        <ng-md-icon icon="home" style="fill:#D81B60" ></ng-md-icon>
         <h3>
           <span>Gover</span>
         </h3>
         <span flex></span>
-        <md-button class="md-accent" ng-click="appCtrl.signup()">Sign up</md-button>
-        <md-button class="md-accent" ng-click="appCtrl.login()">Log in</md-button>
+        <div class="icons" layout="row" layout-align="center center">
+          <div class="icon">
+            <ng-md-icon icon="github-box"></ng-md-icon>
+          </div>
+          <div class="icon">
+            <ng-md-icon icon="facebook-box"></ng-md-icon>
+          </div>
+          <div class="icon">
+            <ng-md-icon icon="twitter"></ng-md-icon>
+          </div>
+          <div class="icon">
+            <ng-md-icon icon="google-plus-box"></ng-md-icon>
+          </div>
+        </div>
+        <div ng-if="!appCtrl.logedIn">
+          <md-button class="md-accent" ng-click="appCtrl.signup()">Sign up</md-button>
+          <md-button class="md-accent" ng-click="appCtrl.login()">Log in</md-button>
+        </div>
+        <div ng-if="appCtrl.logedIn">
+          <md-button class="md-accent" ng-click="appCtrl.logout()">Log out</md-button>
+        </div>
       </div>
     </md-toolbar>
   </header>
 
   <auto-divider></auto-divider>
 
-  <section>
-    <img src="main.png" class="img-main"/>
-  </section>
-
-  <section>
-    <div layout="row" layout-align="center center">
-      <h2>住所の変更にはもう飽きたろう？</h2>
-    </div>
-  </section>
-
+  <div id="toastBounds">
+    <top ng-if="!appCtrl.logedIn"></top>
+    <my-page ng-if="appCtrl.logedIn"></my-page>
+  </div>
 
 <%= stylesheet_link_tag webpack_asset_path('application.css') %>
 <%= javascript_include_tag webpack_asset_path('application.js')%>
