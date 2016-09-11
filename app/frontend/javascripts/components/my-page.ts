@@ -1,5 +1,5 @@
 ///<reference path="../typings/bundle.d.ts"/>
-
+let Clipboard: any = require('clipboard')
 import angular = require('angular')
 import {Address} from '../models/address'
 import AddressResource from '../resources/address-resource'
@@ -87,6 +87,10 @@ class MyPage {
 				}
 			})
 		}
+
+		new Clipboard('.btn-copy').on('success',()=> {
+			this.toast.show('コピーできたで！')
+		})
 	}
 
 	private save() {
@@ -111,9 +115,19 @@ app.component('myPage', {
 		`
 		<div layout="row" layout-align="center center">
 			<md-content class="container-address md-whiteframe-7dp">
+				<input id="token" value="{{$ctrl.address.token}}" readonly/>
 				<div layout="row" layout-align="center center" ng-if="$ctrl.address.token" class="container-token">
 					<ng-md-icon icon="vpn_key" style="fill: #fff; margin-right: 10px;"></ng-md-icon>
 					{{$ctrl.address.token}}
+					<!--<button data-clipboard-target="#token">-->
+						<!--<ng-md-icon icon="content_copy" style="fill: #fff; margin-left: 10px;"></ng-md-icon>-->
+					<!--</button>-->
+					<md-button class="btn-copy" data-clipboard-target="#token">
+						<ng-md-icon icon="content_copy" style="fill: #fff;"></ng-md-icon>
+						<md-tooltip md-direction="bottom">
+							Copy to clipboard!
+						</md-tooltip>
+					</md-button>
 				</div>
 				
 				<div style="height:5px"></div>
