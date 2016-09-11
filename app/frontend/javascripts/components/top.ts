@@ -24,7 +24,7 @@ app.component('top', {
 	</section>
 	<section>
 		<div layout="row" layout-align="center center">
-			<h2>住所の変更にはもう飽きたろう？</h2>
+			<h2>住所の入力にはもう飽きたろう？</h2>
 		</div>
 	</section>
 		`

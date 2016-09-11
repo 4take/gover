@@ -9,7 +9,7 @@ class Signup {
 	private user: User = {id: null, mail: '', password: ''}
 	private mail: string
 	private password: string
-	static $inject = ['$scope', '$element', '$timeout', 'dialog', 'userResource']
+	static $inject = ['$rootScope', '$scope', '$element', '$timeout', 'dialog', 'userResource']
 
 	constructor(
 		private rootScope: ng.IRootScopeService,

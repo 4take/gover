@@ -96,11 +96,13 @@ class MyPage {
 	private save() {
 		if(this.address.user_id) {
 			this.addressResource.update(this.address, (address)=> {
+				this.address = address
 				this.toast.show('登録できたで！')
 			})
 		} else {
 			this.address.user_id = this.cookies.get('goverUserId')
 			this.addressResource.save(this.address, (address)=> {
+				this.address = address
 				this.toast.show('登録できたで！')
 			})
 		}
