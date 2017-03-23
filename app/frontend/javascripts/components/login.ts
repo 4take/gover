@@ -34,7 +34,7 @@ app.component('login', {
 		<md-content class="container-login">
 			<md-input-container class="md-block">
 				<label>mail</label>
-				<input ng-model="$ctrl.user.mail" type="mail" placeholder="Mail (required)" ng-required="true">
+				<input ng-model="$ctrl.user.mail" type="mail" placeholder="Mail (required)" ng-required="true" has-error="$ctrl.user.mail == 'わさわーさ'">
 			</md-input-container>
 			<md-input-container class="md-block">
 				<label>password</label>

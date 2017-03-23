@@ -32,6 +32,7 @@ import './controllers/app-controller'
 
 //directive
 import './directives/scroll-opacity-changer'
+import './directives/has-error'
 
 //component
 import './components/auto-divider'
